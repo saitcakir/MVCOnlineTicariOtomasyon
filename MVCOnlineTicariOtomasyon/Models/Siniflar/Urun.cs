@@ -11,7 +11,7 @@ namespace MVCOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int UrunId { get; set; }
-        [Column(TypeName ="Varchar")]
+        [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string UrunAd { get; set; }
         [Column(TypeName = "Varchar")]
@@ -25,7 +25,8 @@ namespace MVCOnlineTicariOtomasyon.Models.Siniflar
         [Column(TypeName = "varchar")]
         [StringLength(250)]
         public string UrunGorsel { get; set; }
-        public Kategori Kategori { get; set; }
+        public int KategoriID { get; set; }
+        public virtual Kategori Kategori { get; set; }
 
         public ICollection<SatisHareket> SatisHarekets { get; set; }
     }
