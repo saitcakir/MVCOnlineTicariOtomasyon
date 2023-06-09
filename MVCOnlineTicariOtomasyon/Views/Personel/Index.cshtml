@@ -1,0 +1,43 @@
+﻿@using MVCOnlineTicariOtomasyon.Models.Siniflar
+@model  List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered" style="margin-top:20px; ">
+    <tr>
+        <th>Personel ID</th>
+        <th>Personel Adı</th>
+        <th>Personel Soyadı</th>
+        <th>Görsel</th>
+        <th>Departman</th>
+        <th>Durum</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+
+    </tr>
+    @foreach (var c in Model)
+    {
+
+
+        var aktifMi = c.Durum == true ? "Aktif" : "Pasif";
+        var aktifRenk = c.Durum == true ? "success" : "danger";
+
+
+        <tr>
+            <td>@c.Personelid</td>
+            <td>@c.PersonelAd</td>
+            <td>@c.PersonelSoyad</td>
+            <td>@c.PersonelAd</td>
+            <td>@c.Departman.DepartmanAd</td>
+            <td><a href="/Personel/PersonelDurum/@c.Personelid" class="btn btn-@aktifRenk">@aktifMi</a></td>
+
+            <td><a href="/Personel/PersonelGetir/@c.Personelid" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Personel/PersonelSatis/@c.Personelid" class="btn btn-success">Satış Geçmişi</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Personel/PersonelEkle" class="btn btn-info">Personel Ekle</a>

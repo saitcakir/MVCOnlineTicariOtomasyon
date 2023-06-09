@@ -12,7 +12,7 @@ namespace MVCOnlineTicariOtomasyon.Models.Siniflar
         [Key]
         public int FaturaKalemİd { get; set; }
 
-        [Column(TypeName = "varchar")]
+        [Column(TypeName = "nvarchar")]
         [StringLength(100)]
         public string Aciklama { get; set; }
         public int Miktar { get; set; }

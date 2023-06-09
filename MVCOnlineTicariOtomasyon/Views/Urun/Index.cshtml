@@ -1,12 +1,12 @@
 ﻿@using MVCOnlineTicariOtomasyon.Models.Siniflar ;
-@model List<Urun> 
-  
+@model List<Urun>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<br />  
+<br />
 
 <table class="table table-bordered">
     <tr>
@@ -18,6 +18,8 @@
         <th>SATIŞ FİYAT</th>
         <th>KATEGORİ</th>
         <th>GÖRSEL</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
     </tr>
     @foreach (var u in Model)
     {
@@ -30,6 +32,8 @@
             <td>@u.SatisFiyat</td>
             <td>@u.Kategori.KategoriAd</td>
             <td>@u.UrunGorsel</td>
+            <td><a class="btn btn-danger" href="/Urun/UrunSil/@u.UrunId">Sil</a></td>
+            <td><a class="btn btn-success" href="/Urun/UrunGetir/@u.UrunId">Güncelle</a></td>
         </tr>
 
     }
